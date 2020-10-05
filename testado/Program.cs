@@ -8,7 +8,7 @@ namespace testado
         {          
             Console.WriteLine("Step 1");
             
-            throw new Exception("Exception from utility")
+            throw new Exception("Exception from utility");
             
             Console.WriteLine("Step 2");
         }
