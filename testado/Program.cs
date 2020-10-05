@@ -1,3 +1,4 @@
+using Serilog;
 using System;
 
 namespace testado
@@ -5,12 +6,20 @@ namespace testado
     class Program
     {
         static void Main(string[] args)
-        {          
-            Console.WriteLine("Step 1");
-            
-            throw new Exception("Exception from utility");
-            
-            Console.WriteLine("Step 2");
+        {
+            var log = new LoggerConfiguration()
+                 .WriteTo.Console()
+                 .CreateLogger();
+
+            try
+            {
+                throw new Exception();
+            }
+            catch (Exception)
+            {
+                log.Error("Error from console");
+                throw;
+            }
         }
     }
 }
