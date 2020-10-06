@@ -7,6 +7,12 @@ namespace testado
     {
         static void Main(string[] args)
         {
+            foreach(var arg in args)
+            {
+                Console.WriteLine(arg);
+            }
+            
+            
             var log = new LoggerConfiguration()
                  .WriteTo.Console()
                  .CreateLogger();
